@@ -26,7 +26,7 @@
     }).addTo(map);
 
     for (i=0;i<station.id.length;i++){
-        var pngAddress ="'"+'/Users/alexbeja/Desktop/Senior Year /456/Sea level data/json_leaflet/png_monthly copy/'+ station.id[i] +".png" +"'"
+        var pngAddress ="'"+'https://github.com/alexbeja12/456final/blob/d3841bf9e02a1fe56e7819aa275b6a29f8b0d0a4/json_leaflet%20copy/png_monthly%20copy/'+ station.id[i] +".png" +"'"
         console.log(pngAddress)
         var popupgraph = "'"+"<br/><img src="+pngAddress+"width='300px'/>"+"'";
         var graph = "<a href=" + pngAddress+ " target='_blank'" + ">" + popupgraph + "</a>"
