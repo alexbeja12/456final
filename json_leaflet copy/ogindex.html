@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Level Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+</head>
+
+<body>
+    <script src="dffilelist.js"></script>
+    <div id='mymap' style="width: 1200px; height: 600px;">
+
+    </div>
+    <script>
+        var map = L.map('mymap').setView([51.505, -0.09], 2);
+
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    }).addTo(map);
+
+    for (i=0;i<station.id.length;i++){
+        var pngAddress ="'"+'/Users/alexbeja/Desktop/Senior Year /456/Sea level data/json_leaflet/png_monthly copy/'+ station.id[i] +".png" +"'"
+        console.log(pngAddress)
+        var popupgraph = "'"+"<br/><img src="+pngAddress+"width='300px'/>"+"'";
+        var graph = "<a href=" + pngAddress+ " target='_blank'" + ">" + popupgraph + "</a>"
+       console.log(graph)
+        L.circle([station.Latitude[i],station.Longitude[i]],
+        {
+    color: 'yellow',
+    fillColor: 'cyan',
+    fillOpacity: 0.5,
+    radius: 5000,
+    weight: 1
+})
+        .bindPopup(graph)
+        .addTo(map)
+    }
+
+
+
+//(i=0;i<station.id.length;i++)
+//var graph = "<br/><img src='/Users/alexbeja/Desktop/Senior Year /456/Sea level data/json_leaflet/png_monthly copy/"+ station.id[i] +".png'width='300px'/>";
+
+
+
+    </script>
+</body>
+</html>
+
